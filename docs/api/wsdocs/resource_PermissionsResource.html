@@ -1,0 +1,564 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>PermissionsResource</title>
+
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS: implied media="all" -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/prettify.css">
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="js/libs/modernizr-1.7.min.js"></script>
+
+</head>
+
+<body class="home">
+
+  <div class="container">
+    <header>
+      <div id="header" class="column first last span-20">
+        <div id="site-name" class="column span-18 append-1 prepend-1 first last"><a href="index.html">PermissionsResource</a></div>
+        <div id="primary" class="column span-18 append-1 prepend-1 first last">
+          <ul class="navigation">
+            <li id="nav-rest"><a href="rest.html">REST</a></li>
+            <li id="nav-data"><a href="model.html">Data Model</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="xbreadcrumbs" id="breadcrumbs">
+            <li>
+              <a href="index.html" class="home">Home</a> &gt;
+            </li>
+            <li>
+              <a href="rest.html">REST</a> &gt;
+              <ul>
+                <li><a href="model.html">Data Model</a></li>
+                <li><a href="rest.html">REST</a></li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="resource_PermissionsResource.html">PermissionsResource</a>
+              <ul>
+                <li><a href="resource_AccessResource.html">AccessResource</a></li>
+                <li><a href="resource_AdminResource.html">AdminResource</a></li>
+                <li><a href="resource_AnnotationResource.html">AnnotationResource</a></li>
+                <li><a href="resource_AuthoritativeSetResource.html">AuthoritativeSetResource</a></li>
+                <li><a href="resource_ContentTypeResource.html">ContentTypeResource</a></li>
+                <li><a href="resource_CountryResource.html">CountryResource</a></li>
+                <li><a href="resource_CvocConceptResource.html">CvocConceptResource</a></li>
+                <li><a href="resource_DescriptionResource.html">DescriptionResource</a></li>
+                <li><a href="resource_DocumentaryUnitResource.html">DocumentaryUnitResource</a></li>
+                <li><a href="resource_EventResource.html">EventResource</a></li>
+                <li><a href="resource_GenericResource.html">GenericResource</a></li>
+                <li><a href="resource_GroupResource.html">GroupResource</a></li>
+                <li><a href="resource_HistoricalAgentResource.html">HistoricalAgentResource</a></li>
+                <li><a href="resource_ImportResource.html">ImportResource</a></li>
+                <li><a href="resource_LinkResource.html">LinkResource</a></li>
+                <li><a href="resource_PermissionGrantResource.html">PermissionGrantResource</a></li>
+                <li><a href="resource_PermissionsResource.html">PermissionsResource</a></li>
+                <li><a href="resource_PromotionResource.html">PromotionResource</a></li>
+                <li><a href="resource_RepositoryResource.html">RepositoryResource</a></li>
+                <li><a href="resource_UserProfileResource.html">UserProfileResource</a></li>
+                <li><a href="resource_VirtualUnitResource.html">VirtualUnitResource</a></li>
+                <li><a href="resource_VocabularyResource.html">VocabularyResource</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div id="main" class="column first last span-20">
+      <h1>PermissionsResource</h1>
+
+      <p>Provides a RESTful(ish) interface for setting PermissionTarget perms.</p>
+      <p>The following resources are applicable:</p>
+      <ul>
+        <li>
+        <a href="#path__permission.html">/permission</a>
+        </li>
+        <li>
+        <a href="#path__permission_-userId-.html">/permission/{userId}</a>
+        </li>
+        <li>
+        <a href="#path__permission_-userId-_-id-.html">/permission/{userId}/{id}</a>
+        </li>
+        <li>
+        <a href="#path__permission_-userId-_scope_-id-.html">/permission/{userId}/scope/{id}</a>
+        </li>
+        <li>
+        <a href="#path__permission_list_-id-.html">/permission/list/{id}</a>
+        </li>
+        <li>
+        <a href="#path__permission_listForItem_-id-.html">/permission/listForItem/{id}</a>
+        </li>
+        <li>
+        <a href="#path__permission_listForScope_-id-.html">/permission/listForScope/{id}</a>
+        </li>
+      </ul>
+        <a name="path__permission.html"></a>
+      <h1>/permission</h1>
+      <p class="note">Mount Point: <a href="../permission">/permission</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get the global permission matrix for the user making the request, based
+on the Authorization header.
+          </p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>The current user's global permissions</p>
+        <a name="path__permission_-userId-.html"></a>
+      <h1>/permission/{userId}</h1>
+      <p class="note">Mount Point: <a href="../permission/{userId}">/permission/{userId}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get the global permission matrix for the given accessor.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>userId</td>
+          <td>
+            The user ID
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>The user's global permissions</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Set a user's global permission matrix.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>userId</td>
+          <td>
+            The user ID
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+            <td>globals</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>The permission matrix data</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>The new permissions</p>
+        <a name="path__permission_-userId-_-id-.html"></a>
+      <h1>/permission/{userId}/{id}</h1>
+      <p class="note">Mount Point: <a href="../permission/{userId}/{id}">/permission/{userId}/{id}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get the permission matrix for a given user on the given entity.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>userId</td>
+          <td>
+            The user's ID
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>
+            The item id
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>The user's permissions for that item</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Set a user's permissions on a given item.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>userId</td>
+          <td>
+            the user id
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>
+            the item id
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+            <td>itemPerms</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>the serialized permission list</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>(no documentation provided)</p>
+        <a name="path__permission_-userId-_scope_-id-.html"></a>
+      <h1>/permission/{userId}/scope/{id}</h1>
+      <p class="note">Mount Point: <a href="../permission/{userId}/scope/{id}">/permission/{userId}/scope/{id}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get the user's permissions for a given scope.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>userId</td>
+          <td>
+            The user's permissions
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>
+            The scope ID
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>The matrix for the given scope</p>
+      <a name="POST"></a>
+      <h2>POST</h2>
+      <p>
+            Set a user's permissions on a content type with a given scope.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>userId</td>
+          <td>
+            the user
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>
+            the scope id
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Request Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+            <td>globals</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>the serialized permission list</p>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>application/json</td>
+        </tr>
+      </table>
+      <p>The new permission matrix</p>
+        <a name="path__permission_list_-id-.html"></a>
+      <h1>/permission/list/{id}</h1>
+      <p class="note">Mount Point: <a href="../permission/list/{id}">/permission/list/{id}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            Get a list of permission grants for the given user
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>
+            The user's id
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>text/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>A list of permission grants for the user</p>
+        <a name="path__permission_listForItem_-id-.html"></a>
+      <h1>/permission/listForItem/{id}</h1>
+      <p class="note">Mount Point: <a href="../permission/listForItem/{id}">/permission/listForItem/{id}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            List all the permission grants that relate specifically to this item.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>text/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>A list of grants for this item</p>
+        <a name="path__permission_listForScope_-id-.html"></a>
+      <h1>/permission/listForScope/{id}</h1>
+      <p class="note">Mount Point: <a href="../permission/listForScope/{id}">/permission/listForScope/{id}</a></p>
+      <a name="GET"></a>
+      <h2>GET</h2>
+      <p>
+            List all the permission grants that relate specifically to this scope.
+          </p>
+      <h3>Parameters</h3>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>description</th>
+          <th>type</th>
+          <th>default</th>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>
+            (no documentation provided)
+          </td>
+          <td>path</td>
+          <td></td>
+        </tr>
+      </table>
+      <h3>Response Body</h3>
+      <table>
+        <tr>
+          <td align="right">element:</td>
+          <td>(custom)</td>
+        </tr>
+        <tr>
+          <td align="right">media types:</td>
+          <td>text/xml<br/>application/json</td>
+        </tr>
+      </table>
+      <p>A list of grants for the given scope</p>
+
+      <div class="clear" />
+    </div>
+    <footer>
+      <div id="footer">
+        Copyright &copy; <script type="text/javascript" language="javascript">d = new Date;document.write(d.getFullYear());</script> <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">The EHRI Project</span><br/>
+        Generated by <a href="http://enunciate.codehaus.org">Enunciate</a>.
+      </div>
+    </footer>
+  </div> <!--! end of #container -->
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
+
+  <!--manage the navigation menu-->
+  <script src="js/libs/xbreadcrumbs.js"></script>
+  <script>
+    $(function() {
+      $('#breadcrumbs').xBreadcrumbs();
+    });
+  </script>
+
+
+  <!-- prettify code blocks. see http://code.google.com/p/google-code-prettify/ -->
+  <script src="js/libs/prettify/prettify.js"></script>
+  <script>
+    $(function() {
+      prettyPrint();
+    });
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg"); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+</body>
+</html>
